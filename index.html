@@ -1,9 +1,230 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surgery Checklist</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fa;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#2c3e50;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+.progress-container{
+    width:100%;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+    height:25px;
+}
+
+.progress{
+    height:100%;
+    width:0%;
+    background:#27ae60;
+    transition:.3s;
+}
+
+.section{
+    margin-top:20px;
+}
+
+.section h2{
+    color:#c0392b;
+}
+
+.item{
+    padding:8px 0;
+}
+
+.completed{
+    text-decoration:line-through;
+    color:gray;
+}
+
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.reset{
+    background:#e74c3c;
+    color:white;
+}
+</style>
 </head>
+
 <body>
-<h1>Hello Surgery Checklist</h1>
+
+<div class="container">
+
+<h1>🏥 Surgery Checklist</h1>
+
+<div class="card">
+<h3 id="counter">0 / 12 Completed</h3>
+
+<div class="progress-container">
+<div class="progress" id="progress"></div>
+</div>
+
+<button class="reset" onclick="resetAll()">
+Reset Progress
+</button>
+</div>
+
+<div class="card section">
+<h2>General Surgery</h2>
+
+<div class="item">
+<input type="checkbox" id="burns">
+<label for="burns">Burns</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="fluids">
+<label for="fluids">Fluids</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="shock">
+<label for="shock">Shock</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="infection">
+<label for="infection">Surgical Site Infection</label>
+</div>
+</div>
+
+<div class="card section">
+<h2>GI Surgery</h2>
+
+<div class="item">
+<input type="checkbox" id="esophagus">
+<label for="esophagus">Esophagus</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="appendicitis">
+<label for="appendicitis">Appendicitis</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="ibd">
+<label for="ibd">Inflammatory Bowel Disease</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="hernia">
+<label for="hernia">Hernia</label>
+</div>
+</div>
+
+<div class="card section">
+<h2>Other Topics</h2>
+
+<div class="item">
+<input type="checkbox" id="breast">
+<label for="breast">Breast Surgery</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="thyroid">
+<label for="thyroid">Thyroid</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="vascular">
+<label for="vascular">Vascular Surgery</label>
+</div>
+
+<div class="item">
+<input type="checkbox" id="thoracic">
+<label for="thoracic">Thoracic Surgery</label>
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const boxes=document.querySelectorAll("input[type=checkbox]");
+
+boxes.forEach(box=>{
+
+box.checked=localStorage.getItem(box.id)==="true";
+
+box.addEventListener("change",()=>{
+
+localStorage.setItem(box.id,box.checked);
+
+update();
+
+});
+
+});
+
+function update(){
+
+let total=boxes.length;
+let checked=0;
+
+boxes.forEach(box=>{
+
+if(box.checked) checked++;
+
+});
+
+document.getElementById("counter").innerText=
+checked+" / "+total+" Completed";
+
+document.getElementById("progress").style.width=
+(checked/total*100)+"%";
+
+}
+
+function resetAll(){
+
+localStorage.clear();
+
+boxes.forEach(box=>{
+
+box.checked=false;
+
+});
+
+update();
+
+}
+
+update();
+
+</script>
+
 </body>
 </html>
