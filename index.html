@@ -47,6 +47,564 @@
             margin: 0 auto;
         }
 
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 8px 35px 8px 15px;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .btn-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 8px 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .dashboard {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+
+        .dashboard-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .stat-card {
+            background: var(--bg-color);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .progress-bar-container {
+            background: var(--bg-color);
+            border-radius: 10px;
+            height: 12px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+            transition: width 0.5s ease;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            color: var(--primary-color);
+        }
+
+        .section-progress {
+            font-size: 13px;
+            background: var(--bg-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            color: var(--text-muted);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: right;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 14px;
+        }
+
+        th {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        [data-theme="dark"] tr:hover {
+            background-color: rgba(255,255,255,0.02);
+        }
+
+        .lecture-name {
+            font-weight: 500;
+        }
+
+        .lecture-pages {
+            color: var(--danger-color);
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .dr-name {
+            color: #2980b9;
+            font-size: 13px;
+        }
+
+        [data-theme="dark"] .dr-name {
+            color: #3498db;
+        }
+
+        .checkbox-cell {
+            text-align: center;
+            width: 80px;
+        }
+
+        .custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--text-muted);
+            border-radius: 6px;
+            outline: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .checkbox-studied:checked {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+        }
+
+        .checkbox-revised:checked {
+            background-color: var(--warning-color);
+            border-color: var(--warning-color);
+        }
+
+        .custom-checkbox:checked::before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: white;
+            font-size: 12px;
+        }
+
+        .save-status {
+            position: fixed;
+            bottom: 15px;
+            left: 15px;
+            background: var(--success-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            display: none;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            header { flex-direction: column; align-items: stretch; }
+            .controls { justify-content: space-between; }
+            .search-box { flex-grow: 1; }
+            .search-box input { width: 100%; }
+            th, td { padding: 8px 5px; font-size: 13px; }
+            .dr-name { display: block; font-size: 11px; }
+            .checkbox-cell { width: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <header>
+        <h1>🏥 مُتابِع محاضرات الجراحة (37 Lecture)</h1>
+        <div class="controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="بحث عن محاضرة أو دكتور..." oninput="filterLectures()">
+            </div>
+            <button class="btn-toggle" onclick="toggleTheme()" title="تغيير الوضع">
+                <i class="fas fa-moon" id="themeIcon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="dashboard">
+        <div class="dashboard-title"><i class="fas fa-chart-line"></i> 📊 نسبة الإنجاز الكلية</div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalLecturesCount">37</div>
+                <div class="stat-label">المحاضرات الإجمالية</div>
+            </div>
+            <div class="stat-card" style="border-top: 3px solid var(--success-color);">
+                <div class="stat-value" id="studiedCount">0</div>
+                <div class="stat-label">✅ تم دراستها</div>
+            </div>
+            <div class="stat-card" style="border-top: 3px solid var(--warning-color);">
+                <div class="stat-value" id="revisedCount">0</div>
+                <div class="stat-label">🔄 تم مراجعتها</div>
+            </div>
+            <div class="stat-card" style="border-top: 3px solid var(--primary-color);">
+                <div class="stat-value" id="completionPercent">0%</div>
+                <div class="stat-label">نسبة المذاكرة</div>
+            </div>
+        </div>
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="overallProgressBar"></div>
+        </div>
+    </div>
+
+    <div id="sectionsContainer"></div>
+
+</div>
+
+<div class="save-status" id="saveStatus">
+    <i class="fas fa-check-circle"></i> تم الحفظ تلقائياً في المتصفح 💾
+</div>
+
+<script>
+    const surgeryData = [
+        {
+            id: 1,
+            title: "1- General Topics",
+            lectures: [
+                { name: "Burns I + II", pages: 92, dr: "Dr. Fahmi Egab" },
+                { name: "Fluids", pages: 40, dr: "Dr. Walaa Taher" },
+                { name: "Shock", pages: 31, dr: "Dr. Anas Asad" },
+                { name: "Coagulation disorders and Blood transfusion", pages: 38, dr: "Dr. Anas Asad" },
+                { name: "Skin tumors", pages: 92, dr: "Dr. Saleh abu alhaj" },
+                { name: "Surgical Site Infections", pages: 24, dr: "Dr. Mohammad Anabtawi" }
+            ]
+        },
+        {
+            id: 2,
+            title: "2- GI Surgery",
+            lectures: [
+                { name: "Esophagus", pages: 79, dr: "Dr. Mumen Diraniyyeh" },
+                { name: "Surgical pathologies of Stomach and duodenum", pages: 34, dr: "Dr. Eyad Qanqaz" },
+                { name: "Intestinal Obstruction", pages: 78, dr: "Dr. Mumen Diraniyyeh" },
+                { name: "Inflammatory Bowel Disease", pages: 51, dr: "Dr. Omar Mansour" },
+                { name: "Appendicitis", pages: 37, dr: "Dr. Eyad Qanqaz" },
+                { name: "Polyps and colon cancer", pages: 48, dr: "Dr. Omar Mansour" },
+                { name: "Diverticular Diseases", pages: 29, dr: "Dr. Omar Mansour" },
+                { name: "Pancreatitis", pages: 41, dr: "Dr. Eyad Qanqaz" },
+                { name: "Spleen, Liver and portal hypertension", pages: 87, dr: "Dr. Anas Asad" },
+                { name: "Gallbladder and biliary tract disorders", pages: 42, dr: "Dr. Eyad Qanqaz" },
+                { name: "Abdominal X-ray Interpretation", pages: 28, dr: "Dr. Walaa Taher" },
+                { name: "Perianal surgical conditions (Related)", pages: 42, dr: "Dr. Omar Mansour" },
+                { name: "Hernias (Related)", pages: 46, dr: "Dr. Mohammad Mahafthah" }
+            ]
+        },
+        {
+            id: 3,
+            title: "3- Breast Surgery",
+            lectures: [
+                { name: "Malignant breast cancer", pages: 70, dr: "Dr. Walaa Taher" },
+                { name: "Benign breast diseases", pages: 33, dr: "Dr. Walaa Taher" }
+            ]
+        },
+        {
+            id: 4,
+            title: "4- Endocrine Surgery",
+            lectures: [
+                { name: "Thyroid gland", pages: 65, dr: "Dr. Mohammad Mahafthah" },
+                { name: "Parathyroid gland", pages: 61, dr: "Dr. Mohammad Mahafthah" },
+                { name: "Adrenal glands", pages: 6, dr: "Dr. Mohammad Mahafthah" }
+            ]
+        },
+        {
+            id: 5,
+            title: "5- Vascular Surgery",
+            lectures: [
+                { name: "Acute Aortic Syndrome", pages: 26, dr: "Dr. Moath Al-dergham" },
+                { name: "Peripheral Arterial Disease", pages: 31, dr: "Dr. Moath Al-dergham" },
+                { name: "Varicose veins and Deep venous insufficiency", pages: 27, dr: "Dr. Moath Al-dergham" },
+                { name: "Lymphedema", pages: 22, dr: "Dr. Moath Al-dergham" }
+            ]
+        },
+        {
+            id: 6,
+            title: "6- Thoracic Surgery (RS)",
+            lectures: [
+                { name: "Lung Neoplasms", pages: 83, dr: "Dr. Shadi Hamouri" },
+                { name: "Mediastinal Disorders", pages: 48, dr: "Dr. Shadi Hamouri" },
+                { name: "Pleural Space Disease", pages: 74, dr: "Dr. Shadi Hamouri" }
+            ]
+        },
+        {
+            id: 7,
+            title: "7- Head and Neck Surgery",
+            lectures: [
+                { name: "Head and neck swellings", pages: 44, dr: "Dr. Mohammad Anabtawi" },
+                { name: "Maxillofacial injuries", pages: 54, dr: "Dr. Saleh abu alhaj" },
+                { name: "Neck trauma", pages: 34, dr: "Dr. Saleh abu alhaj" }
+            ]
+        },
+        {
+            id: 8,
+            title: "8- Pediatric Surgery",
+            lectures: [
+                { name: "Common problems in pediatric Surgery I", pages: 30, dr: "Dr. Rasim" },
+                { name: "Common problems in pediatric Surgery II", pages: 43, dr: "Dr. Rasim" },
+                { name: "Cleft lip and palate", pages: 51, dr: "Dr. Fahmi Egab" }
+            ]
+        }
+    ];
+
+    let userProgress = JSON.parse(localStorage.getItem('surgery_progress_v1')) || {};
+
+    function initApp() {
+        const container = document.getElementById('sectionsContainer');
+        container.innerHTML = '';
+        let globalIndex = 0;
+
+        surgeryData.forEach(section => {
+            const card = document.createElement('div');
+            card.className = 'section-card';
+            card.id = `section-${section.id}`;
+
+            let rowsHtml = '';
+            section.lectures.forEach(lec => {
+                const lecId = `lec_${globalIndex}`;
+                const checkedStudied = userProgress[lecId]?.studied ? 'checked' : '';
+                const checkedRevised = userProgress[lecId]?.revised ? 'checked' : '';
+
+                rowsHtml += `
+                    <tr class="lecture-row" data-name="${lec.name.toLowerCase()}" data-dr="${lec.dr.toLowerCase()}">
+                        <td>
+                            <span class="lecture-name">${lec.name}</span>
+                            <span class="lecture-pages">(${lec.pages})</span>
+                        </td>
+                        <td class="dr-name">${lec.dr}</td>
+                        <td class="checkbox-cell">
+                            <input type="checkbox" class="custom-checkbox checkbox-studied" id="${lecId}_s" ${checkedStudied} onchange="updateProgress('${lecId}', 'studied', this.checked)">
+                        </td>
+                        <td class="checkbox-cell">
+                            <input type="checkbox" class="custom-checkbox checkbox-revised" id="${lecId}_r" ${checkedRevised} onchange="updateProgress('${lecId}', 'revised', this.checked)">
+                        </td>
+                    </tr>
+                `;
+                globalIndex++;
+            });
+
+            card.innerHTML = `
+                <div class="section-header">
+                    <h3 class="section-title">${section.title}</h3>
+                    <span class="section-progress" id="section-prog-text-${section.id}">📈 Progress: 0%</span>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>المحاضرة (عدد الصفحات)</th>
+                                <th>الدكتور</th>
+                                <th class="checkbox-cell">✅ Studied</th>
+                                <th class="checkbox-cell">🔄 Revised</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rowsHtml}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        if(localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.getElementById('themeIcon').className = 'fas fa-sun';
+        }
+
+        calculateStats();
+    }
+
+    function calculateStats() {
+        let totalLectures = 0;
+        let totalStudied = 0;
+        let totalRevised = 0;
+        let globalIndex = 0;
+
+        surgeryData.forEach(section => {
+            let sectionStudied = 0;
+            section.lectures.forEach(() => {
+                const lecId = `lec_${globalIndex}`;
+                if (userProgress[lecId]?.studied) totalStudied++;
+                if (userProgress[lecId]?.studied) sectionStudied++;
+                if (userProgress[lecId]?.revised) totalRevised++;
+                totalLectures++;
+                globalIndex++;
+            });
+
+            const sectionPercent = section.lectures.length > 0 ? Math.round((sectionStudied / section.lectures.length) * 100) : 0;
+            const progText = document.getElementById(`section-prog-text-${section.id}`);
+            if(progText) progText.innerText = `📈 Progress: ${sectionPercent}%`;
+        });
+
+        document.getElementById('totalLecturesCount').innerText = totalLectures;
+        document.getElementById('studiedCount').innerText = totalStudied;
+        document.getElementById('revisedCount').innerText = totalRevised;
+        
+        const overallPercent = totalLectures > 0 ? Math.round((totalStudied / totalLectures) * 100) : 0;
+        document.getElementById('completionPercent').innerText = `${overallPercent}%`;
+        document.getElementById('overallProgressBar').style.width = `${overallPercent}%`;
+    }
+
+    function updateProgress(id, type, val) {
+        if (!userProgress[id]) userProgress[id] = { studied: false, revised: false };
+        userProgress[id][type] = val;
+        
+        localStorage.setItem('surgery_progress_v1', JSON.stringify(userProgress));
+        calculateStats();
+        showSaveToast();
+    }
+
+    function showSaveToast() {
+        const toast = document.getElementById('saveStatus');
+        toast.style.display = 'flex';
+        setTimeout(() => { toast.style.display = 'none'; }, 1500);
+    }
+
+    function filterLectures() {
+        const query = document.getElementById('searchInput').value.toLowerCase();
+        const rows = document.querySelectorAll('.lecture-row');
+        
+        rows.forEach(row => {
+            const name = row.getAttribute('data-name');
+            const dr = row.getAttribute('data-dr');
+            if(name.includes(query) || dr.includes(query)) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    function toggleTheme() {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const icon = document.getElementById('themeIcon');
+        if (currentTheme === 'dark') {
+            document.documentElement.removeAttribute('data-theme');
+            icon.className = 'fas fa-moon';
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            icon.className = 'fas fa-sun';
+            localStorage.setItem('theme', 'dark');
+        }
+    }
+
+    // هنا تم تعديل طريقة الاستدعاء لضمان تشغيل الدالة وبناء الجدول بمجرد فتح الصفحة فوراً
+    document.addEventListener("DOMContentLoaded", initApp);
+</script>
+
+</body>
+</html>
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            padding-bottom: 60px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
         /* Header & Controls */
         header {
             display: flex;
